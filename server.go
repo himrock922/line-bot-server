@@ -18,6 +18,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"fmt"
 
 	"github.com/joho/godotenv"
 	"github.com/line/line-bot-sdk-go/linebot"
@@ -58,5 +59,10 @@ func main() {
 			}
 		}
 	})
+		// This is just sample code.
+	// For actual use, you must support HTTPS by using `ListenAndServeTLS`, a reverse proxy or something else.
+	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
+		log.Fatal(err)
+	}
 }
 
